@@ -16,7 +16,7 @@ function loginFunction(event) {
     setLocalStorage(userId);
     localStorage.setItem(STORAGE_NAME_ID, userId);
     loginContainer.className = 'hidden';
-    
+    welcomeContainer.classList.remove('hidden');
     welcomeContainer.innerText = `hello ${userId}`;
 }
 
@@ -24,5 +24,6 @@ loginContainer.addEventListener("submit", loginFunction);
 
 if(localStorage.getItem(STORAGE_NAME_ID) !== null) {
     loginContainer.className = 'hidden';
+    welcomeContainer.classList.remove('hidden');
     welcomeContainer.innerText = `hello ${localStorage.getItem(STORAGE_NAME_ID)}`;
 }
