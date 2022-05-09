@@ -7,12 +7,16 @@
     margin: 18.44px 0 18.44px 0;
     height:37px;
     font-size:20px;
-    /* border:0px; */
+    border:0px;
     /* background-color:lightgray; */
 }
 #loginForm #loginSubmit{
     /* width:; */
     margin: 18.44px 0 18.44px 0;
-    height:37px;
+    height:39px;
+    border: 0;
 
+}
+#loginForm, #welcome, #clock {
+    text-align:center;
 }
