@@ -1,22 +1,57 @@
 .hidden {
     display: none;
 }
+#logoutBlank{
+    opacity:0;   
+}
+
+#logout{
+    height:24.1px;
+    text-align:right;
+}
+
+#logoutButton{
+    opacity:0.5;
+    border:0px;
+    height:21px;
+}
+
+#loginForm {
+    margin:21.44px 0;
+    opacity:0.7;
+}
+
+#welcome{
+    height:43.2px;
+}
+
 #loginForm #loginText{
-    /* width:; */
-    
-    margin: 18.44px 0 18.44px 0;
-    height:37px;
+    height:41.2px;
     font-size:20px;
     border:0px;
-    /* background-color:lightgray; */
 }
-#loginForm #loginSubmit{
-    /* width:; */
-    margin: 18.44px 0 18.44px 0;
-    height:39px;
-    border: 0;
 
+#listText{
+    opacity:0.85;
+    font-size: 16px;
+    border:0px;
+    padding:4px;
+    width:300px;
+    margin-bottom:20px;
 }
-#loginForm, #welcome, #clock {
+
+li{
+    font-size:20px;
+}
+
+#loginForm, #welcome, #clock, #toDoList {
     text-align:center;
 }
+#list{
+    text-align:left;
+}
+
+/* 아.... 이거 보니까 quote를 하단에다가 넣을꺼면 flex를 사용해야될 것 같은데...;;; */
+/* 일단은 뭐 하나하나 내가 만들고 싶은거 먼저 만들어 봅시다 */
+/* 그 후에는 다시 부족했던 부분들을 정리 한 번 하구요 */
+/* 다시 필요한 부분만을 CSS 딱히 신경안쓰고 오리지널대로 만들어봅시다 */

@@ -6,18 +6,30 @@
         <script defer src="js/greeting.js"></script>
         <script defer src="js/clock.js"></script>
         <script defer src="js/background.js"></script>
+        <script defer src="js/quote.js"></script>
         <script defer src="js/todolist.js"></script>
         <script defer src="js/weather.js"></script>
         <title>My WebPage</title>
     </head>
     <body>
+        <div id="logout">
+            <input type="button" class='hidden' id="logoutButton" value="X">
+            <div id="logoutBlank">0</div>
+        </div>
         <form id="loginForm">
-            <input type="text" id='loginText' placeholder="write your nickname" required>
-            <input type="submit" id="loginSubmit">
+            <input type="text" id='loginText' placeholder="write your nickname" autocomplete='off' required>
         </form>
-        <h1 class='hidden' id="welcome"></h1>
-        <h1 id="clock">00:00</h1>
-        <h3 id="toDoList"></h3>
+        <h1 id="welcome" class='hidden'></h1>
+        <h1 id="clock"> </h1>
+        <div id="toDoList">
+            <form id="toDoListForm">
+                <input type="text" id='listText' placeholder=" What do you have to do?" autocomplete='off' required>
+            </form>
+            <ul id="list">
+                <li>dsf</li>
+            </ul>
+        </div>
         <h4 id="weather"></h4>
+        <div id="quote"></div>
     </body>
 </html>
