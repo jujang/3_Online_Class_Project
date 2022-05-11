@@ -38,5 +38,5 @@ const quotes = [
 
 let quoteNum = Math.floor(Math.random()*26);
 // console.log(quotes[quoteNum].quote);
-console.log(quoteNum);
+// console.log(quoteNum);
 quoteContainer.innerText = quotes[quoteNum].quote;

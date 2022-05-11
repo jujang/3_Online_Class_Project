@@ -44,6 +44,13 @@ li{
     font-size:20px;
 }
 
+#quote {
+    margin: 20px;
+    padding: 6px;
+    background-color:rgba(240,248,255,0.5);
+    /* color:aliceblue; */
+}
+
 #loginForm, #welcome, #clock, #toDoList {
     text-align:center;
 }

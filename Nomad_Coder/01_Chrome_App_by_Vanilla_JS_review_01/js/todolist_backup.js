@@ -7,27 +7,14 @@ let TODOLIST = [];
 
 function removeToDoList(event) {
     event.target.parentElement.remove();
-    console.dir(event);
-    // localStorage.removeItem();
-}
-
-function saveToLocalStorage() {
-    console.log(JSON.stringify(TODOLIST));
-    localStorage.setItem(STORAGE_TODOLIST, JSON.stringify(TODOLIST));
+    localStorage.removeItem(STORAGE_TODOLIST);
 }
 
 function addToDoList(event) {
     event.preventDefault();
     const toDoThing = listTextContainer.value;
+    localStorage.setItem(STORAGE_TODOLIST, toDoThing);
     listTextContainer.value = '';
-
-    let object = {
-        text : toDoThing,
-        id : Date.now()
-    }
-    TODOLIST.push(object);
-    saveToLocalStorage();
-
     const li = document.createElement('li');
     const button = document.createElement('button');
     button.addEventListener('click', removeToDoList);
@@ -52,5 +39,6 @@ toDoList.addEventListener('submit', addToDoList);
 
 let remainList = localStorage.getItem(STORAGE_TODOLIST);
 if(remainList != null) {
+    console.log('!!');
     showRemainToDoList();
 }
