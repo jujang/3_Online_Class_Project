@@ -36,7 +36,6 @@ const quotes = [
     {quote: "블루베리와 호두는 두뇌발달에 좋다"}
 ];
 
-let quoteNum = Math.floor(Math.random()*26);
-// console.log(quotes[quoteNum].quote);
-// console.log(quoteNum);
+let quoteNum = Math.floor(Math.random()*quotes.length);
+
 quoteContainer.innerText = quotes[quoteNum].quote;

@@ -5,52 +5,54 @@ const listContainer = document.querySelector('#list');
 const STORAGE_TODOLIST = 'todolist';
 let TODOLIST = [];
 
-function removeToDoList(event) {
-    event.target.parentElement.remove();
-    console.dir(event);
-    // localStorage.removeItem();
-}
-
 function saveToLocalStorage() {
-    console.log(JSON.stringify(TODOLIST));
     localStorage.setItem(STORAGE_TODOLIST, JSON.stringify(TODOLIST));
 }
 
-function addToDoList(event) {
-    event.preventDefault();
-    const toDoThing = listTextContainer.value;
-    listTextContainer.value = '';
-
-    let object = {
-        text : toDoThing,
-        id : Date.now()
-    }
-    TODOLIST.push(object);
+function removeToDoList(event) {
+    const li = event.target.parentElement;
+    TODOLIST = TODOLIST.filter((something) => (something.text) != li.firstChild.data);
     saveToLocalStorage();
-
-    const li = document.createElement('li');
-    const button = document.createElement('button');
-    button.addEventListener('click', removeToDoList);
-    button.innerText = '❌'
-    li.innerText = toDoThing + '  ';
-    li.appendChild(button);
-    listContainer.appendChild(li);
+    li.remove();
 }
 
-function showRemainToDoList() {
-    const remainList = localStorage.getItem(STORAGE_TODOLIST);
+
+
+function showToDoList(text) {
     const li = document.createElement('li');
+    li.innerText = text;
+    
+
     const button = document.createElement('button');
-    button.addEventListener('click', removeToDoList);
     button.innerText = '❌'
-    li.innerText = remainList + '  ';
+    button.addEventListener('click', removeToDoList);
+    
+
     li.appendChild(button);
     listContainer.appendChild(li);
 } 
 
+
+function addToDoList(event) {
+    event.preventDefault();
+    const toDoThing = listTextContainer.value + ' ';
+    listTextContainer.value = '';
+    let object = {
+        text : toDoThing,
+        id : Date.now()
+    };
+    TODOLIST.push(object);
+    saveToLocalStorage();
+    showToDoList(toDoThing);
+}
+
 toDoList.addEventListener('submit', addToDoList);
 
-let remainList = localStorage.getItem(STORAGE_TODOLIST);
-if(remainList != null) {
-    showRemainToDoList();
+let remainList = JSON.parse(localStorage.getItem(STORAGE_TODOLIST));
+
+if(remainList !== null) {
+    remainList.forEach((toDoThing) => {
+        showToDoList(toDoThing.text);
+    });
+    TODOLIST = remainList; 
 }

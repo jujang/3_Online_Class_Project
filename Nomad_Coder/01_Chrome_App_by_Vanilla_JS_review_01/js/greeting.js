@@ -5,40 +5,37 @@ const loginText = document.querySelector('#loginText');
 const welcomeContainer = document.querySelector('#welcome');
 
 
+const HIDDEN_CLASSNAME = 'hidden';
 const STORAGE_NAME_ID = 'username';
 
-function setLocalStorage(userId) {
-    localStorage.setItem(STORAGE_NAME_ID, userId);
-}
 
 function loginFunction(event) {
     event.preventDefault();
     const userId = loginText.value;
-    loginText.value = '';
-    setLocalStorage(userId);
+    // loginText.value = '';
     localStorage.setItem(STORAGE_NAME_ID, userId);
-    logoutBlank.className = 'hidden';
-    loginContainer.className = 'hidden';
-    logoutContainer.classList.remove('hidden');
-    welcomeContainer.classList.remove('hidden');
+    logoutBlank.className = HIDDEN_CLASSNAME;
+    loginContainer.className = HIDDEN_CLASSNAME;
+    logoutContainer.classList.remove(HIDDEN_CLASSNAME);
+    welcomeContainer.classList.remove(HIDDEN_CLASSNAME);
     welcomeContainer.innerText = `hello ${userId}`;
 }
 
 function logoutFunction(){
-    logoutContainer.className = 'hidden';
-    logoutBlank.classList.remove('hidden');
+    logoutContainer.className = HIDDEN_CLASSNAME;
+    logoutBlank.classList.remove(HIDDEN_CLASSNAME);
     localStorage.removeItem(STORAGE_NAME_ID);
-    loginContainer.classList.remove('hidden');
-    welcomeContainer.className = 'hidden';    
+    loginContainer.classList.remove(HIDDEN_CLASSNAME);
+    welcomeContainer.className = HIDDEN_CLASSNAME;    
 }
 
 loginContainer.addEventListener("submit", loginFunction);
 logoutContainer.addEventListener("click", logoutFunction);
 
 if(localStorage.getItem(STORAGE_NAME_ID) !== null) {
-    loginContainer.className = 'hidden';
-    logoutBlank.className = 'hidden';
-    logoutContainer.classList.remove('hidden');
-    welcomeContainer.classList.remove('hidden');
+    loginContainer.className = HIDDEN_CLASSNAME;
+    logoutBlank.className = HIDDEN_CLASSNAME;
+    logoutContainer.classList.remove(HIDDEN_CLASSNAME);
+    welcomeContainer.classList.remove(HIDDEN_CLASSNAME);
     welcomeContainer.innerText = `hello ${localStorage.getItem(STORAGE_NAME_ID)}`;
 }
