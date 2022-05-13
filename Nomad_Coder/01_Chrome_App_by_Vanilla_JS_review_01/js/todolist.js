@@ -24,7 +24,7 @@ function showToDoList(text) {
     
 
     const button = document.createElement('button');
-    button.innerText = '❌'
+    button.innerText = '❌';
     button.addEventListener('click', removeToDoList);
     
 

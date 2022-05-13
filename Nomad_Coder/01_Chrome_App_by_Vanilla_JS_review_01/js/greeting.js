@@ -12,7 +12,6 @@ const STORAGE_NAME_ID = 'username';
 function loginFunction(event) {
     event.preventDefault();
     const userId = loginText.value;
-    // loginText.value = '';
     localStorage.setItem(STORAGE_NAME_ID, userId);
     logoutBlank.className = HIDDEN_CLASSNAME;
     loginContainer.className = HIDDEN_CLASSNAME;
