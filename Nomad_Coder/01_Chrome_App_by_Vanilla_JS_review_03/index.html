@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>My webpage</title>
+        <link rel="stylesheet" href="css/style.css">
+        <script defer src="js/greeting.js"></script>
+        <script defer src="js/clock.js"></script>
+        <script defer src="js/background.js"></script>
+        <script defer src="js/quote.js"></script>
+        <script defer src="js/todo.js"></script>
+        <script defer src="js/weather.js"></script>
+    </head>
+    <body>
+        <form id="loginForm">
+            <input type="text" id="loginText" placeholder="Write your nickname" required autocomplete="off" maxlength="15">
+        </form>
+        <h1 id="greeting" class="hidden"></h1>
+        <h2 id="clock"></h2>
+        <h4 id="quote"></h4>
+        <div id="weatherAPI"></div>
+        <div id="todo">
+            <form id="todoForm">
+                <input type="text" id="todoInput" placeholder="What do you have to do?" required autocomplete="off">
+            </form>
+            <ul id="ul">
+            </ul>
+        </div>
+    </body>
+</html>
