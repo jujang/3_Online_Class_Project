@@ -1,0 +1,104 @@
+.hidden{
+    display:none;
+}
+.onClick:active{
+    transform: scale(0.95);
+}
+
+body{
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+    height:95vh;
+    display: grid;
+    grid-template-rows: 5fr 12fr 20fr 55fr 8fr ;
+}
+
+#weather{
+    background-color: aliceblue;
+    display:inline-grid;
+    opacity: 0.7;
+    padding: 5px 10px;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: middle;
+    margin: 0px 5px;
+    border-radius: 5px;
+}
+
+#loginForm{
+    margin: 21.44px 0px;
+}
+
+#loginInput {
+    background-color: rgba(255, 255, 255, 0.6);
+    font-size: 25px;
+    border: 0px;
+    width: 270px;
+    height: 30px;
+    padding: 5px;
+    margin: 1.5px;
+    text-align:center;
+    border-radius: 2px;
+}
+
+#greetSpace{
+    font-size:40px;
+}
+
+#logoutButton {
+    vertical-align:middle;
+    border: 0px;
+    height: 30px;
+    width: 30px;
+    font-size : 20px;
+    opacity:0.65;
+    border-radius: 2px;
+}
+
+#clock{
+    font-size: 70px;
+    margin: 30px;
+}
+
+#todoInput{
+    width: 350px;
+    height: 25px;
+    border: 0px;
+    padding: 5px 10px;
+    font-size: 16px;
+    border-radius: 10px;
+    margin: 10px;
+}
+
+ul{
+    display: inline-block;
+    margin: 4px 3px;
+    padding: 0px 8px 2px 32px;
+    font-size: 20px;
+    background-color:rgba(255, 255, 255, 0.6);
+    border-radius: 4px;
+}
+
+#div1, #div2, #div3, #div5{
+    align-self:center;
+}
+#div5{
+    justify-self:center;
+}
+
+#div4{
+    padding:10px;
+}
+
+#quote{
+    width:fit-content;
+    background-color:rgba(255, 255, 255, 0.45);
+    border-radius: 2px;
+    padding:3px 6px;
+    margin: 5px;
+}
+
+#loginForm, #clock, #todoForm, #quote, #greeting{
+    text-align: center;
+}

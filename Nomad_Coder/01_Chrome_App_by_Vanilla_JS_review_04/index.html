@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="css/style.css">
+        <script defer src="js/greeting.js"></script>
+        <script defer src="js/clock.js"></script>
+        <script defer src="js/quote.js"></script>
+        <script defer src="js/background.js"></script>
+        <script defer src="js/todo.js"></script>
+        <script defer src="js/weather.js"></script>
+        <title>My AppPage</title>
+    </head>
+    <body>
+        <div id="div1">
+            <div id="weather"></div>
+        </div>
+        <div id="div2">
+            <form id="loginForm">
+                <input type="text" id="loginInput" placeholder="Write your nickname " required maxlength="15" autocomplete="off">
+            </form>
+            <h1 id="greeting" class="hidden">
+                <span id="greetSpace"></span>
+                <button id="logoutButton"> X </button>
+            </h1>    
+        </div>
+        <div id="div3">
+            <h1 id="clock"></h1>
+        </div>
+        <div id="div4">
+            <form id="todoForm" class="hidden">
+                <input type="text" id="todoInput" placeholder="What do you have to do?" required autocomplete="off">
+            </form>
+            <div id="ulPage"></div>    
+        </div>
+        <div id="div5">
+            <div id="quote"></h4>
+        </div>
+    </body>
+</html>
