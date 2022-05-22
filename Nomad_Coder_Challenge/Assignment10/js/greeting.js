@@ -1,15 +1,16 @@
 const loginForm = document.querySelector('#loginForm');
 const loginText = document.querySelector('#loginInput');
 const greet = document.querySelector('#greeting');
+const greetSpace = document.querySelector('#greetSpace');
 const logoutBtn = document.querySelector('#logoutButton');
 
 const USERNAME = 'username';
 
 
-
 function toggleClass(){
     loginForm.classList.toggle('hidden');
     greet.classList.toggle('hidden');
+    todoForm.classList.toggle('hidden');
 }
 
 function userLogin(event){
@@ -20,27 +21,35 @@ function userLogin(event){
     toggleClass();
     diplayGreet();
 }
+
+function clickSizeDown(event){
+    event.target.classList.add('onClick');
+}
+
 function userLogout(){
     let response = confirm('Are you really going to log out?');
     if(response){
         localStorage.clear();
         toggleClass();
-        ul.innerHTML = '';
+        ulPage.innerHTML = '';
     } else {
 
     }
 }
 
+function btnover(event){
+    event.target.style.cursor = 'pointer';
+}
 function diplayGreet(){
-    const helloBox = document.createElement('span');
-    helloBox.value = '';
-    helloBox.innerText = `hello ${localStorage.getItem(USERNAME)}`;
-    greet.insertBefore(helloBox, greet.firstChild);
+    greetSpace.innerText = `hello ${localStorage.getItem(USERNAME)}    `;
+    greet.insertBefore(greetSpace, greet.firstChild);
 }
 
 
 loginForm.addEventListener('submit', userLogin);
+logoutBtn.addEventListener('mousedown', clickSizeDown);
 logoutBtn.addEventListener('click', userLogout);
+logoutBtn.addEventListener('mouseover', btnover);
 
 
 function checkUserId(){
