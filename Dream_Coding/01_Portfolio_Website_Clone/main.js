@@ -1,14 +1,33 @@
 'use strict';
 
+// Make navbar transparent when it is on the top
 const navbar = document.querySelector('#navbar');
 const nabvarHeight = navbar.getBoundingClientRect().height;
 
-// Make navbar transparent when it is on the top
 document.addEventListener('scroll', () => {
     if(window.scrollY > nabvarHeight) {
         navbar.classList.add('navbar--dark');
     } else {
         navbar.classList.remove('navbar--dark');
-
     }
 });
+
+
+// Handle scrolling when tapping on the navbar menu
+const navbarMenu = document.querySelector('.navbar__menu');
+navbarMenu.addEventListener('click', (event) => {
+    const link = event.target.dataset.link;
+    if(link == null) {
+        return;
+    }
+
+    const scrollTo = document.querySelector(link);
+    const overTop = scrollTo.getBoundingClientRect().y;
+    const distance = window.pageYOffset + overTop - (nabvarHeight-16); 
+
+    // scrollTo.scrollIntoView();
+    scroll({top:distance, behavior: 'smooth'});
+});
+
+
+
