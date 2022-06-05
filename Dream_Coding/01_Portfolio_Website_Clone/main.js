@@ -61,7 +61,18 @@ arrowUp.addEventListener('click', () => {
 });
 
 
+const projectBtns = document.querySelectorAll('.category__btn');
+projectBtns.forEach(projectBtn => {
+    projectBtn.addEventListener('click', (event) => {
+        console.log(event);
+    });
+});
+
+
+
+
 function scrollIntoView(selector) {
     const scrollTo = document.querySelector(selector);
     scrollTo.scrollIntoView({behavior: 'smooth'});
 }
+
