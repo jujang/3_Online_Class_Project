@@ -131,6 +131,10 @@ p {
   border-radius: var(--size-border-radius);
 }
 
+.navbar__menu__item.activeBtn {
+  border-color: var(--color-white);
+}
+
 .navbar__menu__item:hover {
   border-color: var(--color-white);
   background-color: var(--color-dark-pink);

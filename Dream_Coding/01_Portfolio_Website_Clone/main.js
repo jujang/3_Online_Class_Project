@@ -10,6 +10,70 @@ document.addEventListener('scroll', () => {
     } else {
         navbar.classList.remove('navbar--dark');
     }
+
+    const homeSection = document.querySelector('#home');
+    const homeSectionHeight = homeSection.getBoundingClientRect().height;
+    const homeBtn = document.querySelector('[data-link="#home"]');
+    const aboutSection = document.querySelector('#about');
+    const aboutSectionHeight = aboutSection.getBoundingClientRect().height;
+    const aboutBtn = document.querySelector('[data-link="#about"]');
+    const skillsSection = document.querySelector('#skills');
+    const skillsSectionHeight = skillsSection.getBoundingClientRect().height;
+    const skillsBtn = document.querySelector('[data-link="#skills"]');
+    const workSection = document.querySelector('#work');
+    const workSectionHeight = workSection.getBoundingClientRect().height;
+    const workBtn = document.querySelector('[data-link="#work"]');
+    const testimonialsSection = document.querySelector('#testimonials');
+    const testimonialsSectionHeight = testimonialsSection.getBoundingClientRect().height;
+    const testimonialsBtn = document.querySelector('[data-link="#testimonials"]');
+    const contactSection = document.querySelector('#contact');
+    const contactSectionHeight = contactSection.getBoundingClientRect().height;
+    const contactBtn = document.querySelector('[data-link="#contact"]');
+
+    if(window.scrollY < homeSectionHeight - nabvarHeight) {
+        homeBtn.classList.add('activeBtn');
+        aboutBtn.classList.remove('activeBtn');
+        skillsBtn.classList.remove('activeBtn');
+        workBtn.classList.remove('activeBtn');
+        testimonialsBtn.classList.remove('activeBtn');
+        contactBtn.classList.remove('activeBtn');
+    } else if (window.scrollY < homeSectionHeight + aboutSectionHeight - nabvarHeight){
+        homeBtn.classList.remove('activeBtn');
+        aboutBtn.classList.add('activeBtn');
+        skillsBtn.classList.remove('activeBtn');
+        workBtn.classList.remove('activeBtn');
+        testimonialsBtn.classList.remove('activeBtn');
+        contactBtn.classList.remove('activeBtn');
+    } else if (window.scrollY < homeSectionHeight + aboutSectionHeight + skillsSectionHeight - nabvarHeight){
+        homeBtn.classList.remove('activeBtn');
+        aboutBtn.classList.remove('activeBtn');
+        skillsBtn.classList.add('activeBtn');
+        workBtn.classList.remove('activeBtn');
+        testimonialsBtn.classList.remove('activeBtn');
+        contactBtn.classList.remove('activeBtn');
+    } else if (window.scrollY < homeSectionHeight + aboutSectionHeight + skillsSectionHeight + workSectionHeight - nabvarHeight){
+        homeBtn.classList.remove('activeBtn');
+        aboutBtn.classList.remove('activeBtn');
+        skillsBtn.classList.remove('activeBtn');
+        workBtn.classList.add('activeBtn');
+        testimonialsBtn.classList.remove('activeBtn');
+        contactBtn.classList.remove('activeBtn');
+    } else if( window.scrollY + window.innerHeight >= document.body.scrollHeight) {
+        homeBtn.classList.remove('activeBtn');
+        aboutBtn.classList.remove('activeBtn');
+        skillsBtn.classList.remove('activeBtn');
+        workBtn.classList.remove('activeBtn');
+        testimonialsBtn.classList.remove('activeBtn');
+        contactBtn.classList.add('activeBtn');
+    } else if (window.scrollY <= homeSectionHeight + aboutSectionHeight + skillsSectionHeight + workSectionHeight + testimonialsSectionHeight - nabvarHeight){
+        homeBtn.classList.remove('activeBtn');
+        aboutBtn.classList.remove('activeBtn');
+        skillsBtn.classList.remove('activeBtn');
+        workBtn.classList.remove('activeBtn');
+        testimonialsBtn.classList.add('activeBtn');
+        contactBtn.classList.remove('activeBtn');
+    } 
+
 });
 
 
@@ -31,6 +95,9 @@ navbarMenu.addEventListener('click', (event) => {
     // scrollTo.scrollIntoView();
     scroll({top:distance, behavior: 'smooth'});
 });
+
+
+
 
 
 // Navbar toggle button for small screen
@@ -69,7 +136,6 @@ document.addEventListener('scroll', () => {
 arrowUp.addEventListener('click', () => {
     scrollIntoView('#home');
 });
-
 
 
 // Projects
