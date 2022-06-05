@@ -146,6 +146,7 @@ p {
   display: none;
 }
 
+
 /* Home */
 #home{
   background: url(imgs/background-image3.webp) center/cover no-repeat;
@@ -174,6 +175,7 @@ p {
   border: 2px solid var(--color-white);
   border-radius: var(--size-border-radius);
 }
+
 
 /* Section common */
 .section{
@@ -228,7 +230,6 @@ p {
   display: flex;
   align-items: center;
 }
-
 
 .job__description {
   margin: 0 16px;
@@ -303,8 +304,8 @@ p {
   padding: 20px;
 }
 
-/* Work */
 
+/* Work */
 .work__categories{
   margin: 40px;
 }
@@ -445,6 +446,7 @@ p {
   color: var(--color-pink); 
 }
 
+
 /* Contact */
 #contact {
   background-color: var(--color-pink);
@@ -468,6 +470,39 @@ p {
   color: var(--color-yellow);
   transition: all var(--animation-duration) ease;
 }
+
+
+/* Scroll */
+.arrow-up{
+  position: fixed;
+  bottom: 30px;
+  right: 30px; 
+  text-align: right;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: var(--color-pink);
+  color: var(--color-white);
+  border: solid white 2px;
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+  transition: all var(--animation-duration) ease-in-out;
+}
+
+.arrow-up.visible{
+  opacity: 1;
+  pointer-events: initial;
+}
+
+.arrow{
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  font-size: var(--font-medium);
+  line-height: 46px;
+}
+
 
 /* For below 768px screen width */
 @media screen and (max-width: 768px) {
