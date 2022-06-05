@@ -165,37 +165,44 @@
                 <h1>My work</h1>
                 <h3>Projects</h3>
                 <div class="work__categories">
-                    <button class="category__btn active">All
-                        <span class="category__count">8</span>
-                    </button>
-                    <button class="category__btn">Front-end
-                        <span class="category__count">3</span>
-                    </button>
-                    <button class="category__btn">Back-end
+                    <button class="category__btn active" data-filter="*">All
                         <span class="category__count">4</span>
                     </button>
-                    <button class="category__btn">Mobile
+                    <button class="category__btn" data-filter="front-end">Front-end
+                        <span class="category__count">2</span>
+                    </button>
+                    <button class="category__btn" data-filter="back-end">Back-end
+                        <span class="category__count">1</span>
+                    </button>
+                    <button class="category__btn" data-filter="mobile">Mobile
                         <span class="category__count">1</span>
                     </button>
                 </div>
                 <div class="work__projects">
-                    <a href="https://github.com/jujang/1_About_Language/tree/main/HTML/life_coding/web2_training_2" class="project" target="blank">
+                    <a href="https://github.com/jujang/1_About_Language/tree/main/HTML/life_coding/web2_training_2" class="project" target="blank" data-type="back-end">
+                        <img src="imgs/project/Lottery_Gatcha.png" class="project__img" alt="Lottery Gatcha">
+                        <div class="project__description">
+                            <h3>Lottery Gatcha</h3>
+                            <span>creating lottery program</span>
+                        </div>
+                    </a>
+                    <a href="https://github.com/jujang/1_About_Language/tree/main/HTML/life_coding/web2_training_2" class="project" target="blank" data-type="front-end">
                         <img src="imgs/project/MyBlog.png" class="project__img" alt="Blog">
-                        <div class="project__description Front-end">
+                        <div class="project__description">
                             <h3>Blog</h3>
                             <span>creating My Blog</span>
                         </div>
                     </a>
-                    <a href="https://github.com/jujang/4_Online_Class_Project/tree/main/Nomad_Coder/01_Chrome_App_by_Vanilla_JS_review_04" class="project" target="blank">
+                    <a href="https://github.com/jujang/4_Online_Class_Project/tree/main/Nomad_Coder/01_Chrome_App_by_Vanilla_JS_review_04" class="project" target="blank" data-type="front-end">
                         <img src="imgs/project/MyWebpage.png" class="project__img" alt="Chrome App">
-                        <div class="project__description Back-end">
+                        <div class="project__description">
                             <h3>Chrome App</h3>
                             <span>creating My Chrome App</span>
                         </div>
                     </a>
-                    <a href="https://github.com/jujang/4_Online_Class_Project/tree/main/Nomad_Coder/02_Creating_Paintbrush_with_Vanilla_JS_review_02" class="project" target="blank">
+                    <a href="https://github.com/jujang/4_Online_Class_Project/tree/main/Nomad_Coder/02_Creating_Paintbrush_with_Vanilla_JS_review_02" class="project" target="blank" data-type="mobile">
                         <img src="imgs/project/PaintBrush.png" class="project__img" alt="PaintBrush App">
-                        <div class="project__description Mobile">
+                        <div class="project__description">
                             <h3>PaintBrush App</h3>
                             <span>creating PaintBrush App</span>
                         </div>
