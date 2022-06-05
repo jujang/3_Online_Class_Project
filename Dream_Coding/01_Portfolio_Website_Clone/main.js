@@ -7,8 +7,10 @@ const nabvarHeight = navbar.getBoundingClientRect().height;
 document.addEventListener('scroll', () => {
     if(window.scrollY > nabvarHeight) {
         navbar.classList.add('navbar--dark');
+        navbarToggleBtn.classList.add('navbar--dark');
     } else {
         navbar.classList.remove('navbar--dark');
+        navbarToggleBtn.classList.remove('navbar--dark');
     }
 });
 
@@ -21,12 +23,22 @@ navbarMenu.addEventListener('click', (event) => {
         return;
     }
 
+    navbarMenu.classList.remove('open');
+
+
     const scrollTo = document.querySelector(link);
     const overTop = scrollTo.getBoundingClientRect().y;
     const distance = window.pageYOffset + overTop - (nabvarHeight-16); 
 
     // scrollTo.scrollIntoView();
     scroll({top:distance, behavior: 'smooth'});
+});
+
+
+// Navbar toggle button for small screen
+const navbarToggleBtn = document.querySelector('.navbar__toggle-btn');
+navbarToggleBtn.addEventListener('click', () => {
+    navbarMenu.classList.toggle('open');
 });
 
 
@@ -55,7 +67,7 @@ document.addEventListener('scroll', () => {
     }
 });
 
-//Handle click on the "arrow up" button
+// Handle click on the "arrow up" button
 arrowUp.addEventListener('click', () => {
     scrollIntoView('#home');
 });

@@ -110,7 +110,7 @@ p {
 
 #navbar.navbar--dark{
   background-color: var(--color-pink);
-  padding: 8px;
+  padding: 16px;
 }
 
 .navbar__menu {
@@ -143,8 +143,12 @@ p {
   font-size: 24px;
   color: var(--color-white);
   display: none;
+  transition: all var(--animation-duration) ease-in-out;
 }
 
+.navbar--dark.navbar__toggle-btn{
+  top: 24px;
+}
 
 /* Home */
 #home{
@@ -397,7 +401,7 @@ p {
 }
 
 .project__description h3 {
-  color: var(--color-white);
+  color: var(--color-orange);
 }
 
 .project__description h3:after {
@@ -405,9 +409,9 @@ p {
   display: block;
   position: relative;
   left: 50%;
-  width: 25px;
+  width: 50px;
   height: 2px;
-  margin-left: -12px;
+  transform: translateX(-50%);
   margin-top: 8px;
   background-color: var(--color-dark-white);
 }
@@ -523,6 +527,7 @@ p {
   #navbar {
     flex-direction: column;
     align-items: flex-start;
+    background-color: var(--color-pink);
   }
 
   .navbar__menu {
@@ -530,6 +535,10 @@ p {
     text-align: center;
     width: 100%;
     display: none;
+  }
+
+  .navbar__menu.open{
+    display: block;
   }
 
   .about__majors {
