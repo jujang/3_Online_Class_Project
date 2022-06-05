@@ -154,15 +154,6 @@ p {
   text-align: center;
 }
 
-.home__container{
-  transition: all var(--animation-duration) ease;
-}
-
-.home__container.home--dark{
-  opacity: 0;
-  transition: all var(--animation-duration) ease;
-}
-
 .home__avatar {
   width: 250px;
   height: 250px;
