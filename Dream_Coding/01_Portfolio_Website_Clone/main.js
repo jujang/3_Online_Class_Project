@@ -71,11 +71,17 @@ workBtnContainer.addEventListener('click', (e) => {
     if(filter == null) {
         return;
     }
+
+    // Remove selection from the previous item and select the new one 
+    const active = document.querySelector('.category__btn.selected');
+    active.classList.remove('selected');
+    const target = (e.target.nodeName === 'BUTTON' ? e.target : e.target.parentNode);
+    target.classList.add('selected');
+
     projectContainer.classList.add('anim-out');
 
     setTimeout( () => {
         projects.forEach((project) => {
-            console.log(project.dataset.type);
             if(filter === '*' || filter === project.dataset.type) {
                 project.classList.remove('invisible');
             } else {
@@ -86,14 +92,6 @@ workBtnContainer.addEventListener('click', (e) => {
         projectContainer.classList.remove('anim-out');
     }, 300);
 });
-
-const projectBtns = document.querySelectorAll('.category__btn');
-projectBtns.forEach(projectBtn => {
-    projectBtn.addEventListener('click', (event) => {
-        // console.log(event);
-    });
-});
-
 
 
 
