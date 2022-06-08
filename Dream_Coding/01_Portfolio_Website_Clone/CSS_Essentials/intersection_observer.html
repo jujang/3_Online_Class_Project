@@ -45,10 +45,27 @@
         
         <script>
             const boxes = document.querySelectorAll('.box');
-            console.log(boxes);
 
+            const options = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 1
+            };
 
+            const observer = new IntersectionObserver( (entries, observer) => {
+                // console.log(entries);
+                // console.log(observer);
+                entries.forEach(entry => {
+                    if(entry.isIntersecting) {
+                        console.log(entry.target);
+                    } else {
+                        console.error(entry.target);
+                    }
+                });
+            }, options);
+
+            boxes.forEach(box => observer.observe(box));
         </script>
-
+        
     </body>
 </html>
