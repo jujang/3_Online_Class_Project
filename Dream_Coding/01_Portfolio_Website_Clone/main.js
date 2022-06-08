@@ -10,70 +10,6 @@ document.addEventListener('scroll', () => {
     } else {
         navbar.classList.remove('navbar--dark');
     }
-
-    const homeSection = document.querySelector('#home');
-    const homeSectionHeight = homeSection.getBoundingClientRect().height;
-    const homeBtn = document.querySelector('[data-link="#home"]');
-    const aboutSection = document.querySelector('#about');
-    const aboutSectionHeight = aboutSection.getBoundingClientRect().height;
-    const aboutBtn = document.querySelector('[data-link="#about"]');
-    const skillsSection = document.querySelector('#skills');
-    const skillsSectionHeight = skillsSection.getBoundingClientRect().height;
-    const skillsBtn = document.querySelector('[data-link="#skills"]');
-    const workSection = document.querySelector('#work');
-    const workSectionHeight = workSection.getBoundingClientRect().height;
-    const workBtn = document.querySelector('[data-link="#work"]');
-    const testimonialsSection = document.querySelector('#testimonials');
-    const testimonialsSectionHeight = testimonialsSection.getBoundingClientRect().height;
-    const testimonialsBtn = document.querySelector('[data-link="#testimonials"]');
-    const contactSection = document.querySelector('#contact');
-    const contactSectionHeight = contactSection.getBoundingClientRect().height;
-    const contactBtn = document.querySelector('[data-link="#contact"]');
-
-    if(window.scrollY < homeSectionHeight - nabvarHeight) {
-        homeBtn.classList.add('activeBtn');
-        aboutBtn.classList.remove('activeBtn');
-        skillsBtn.classList.remove('activeBtn');
-        workBtn.classList.remove('activeBtn');
-        testimonialsBtn.classList.remove('activeBtn');
-        contactBtn.classList.remove('activeBtn');
-    } else if (window.scrollY < homeSectionHeight + aboutSectionHeight - nabvarHeight){
-        homeBtn.classList.remove('activeBtn');
-        aboutBtn.classList.add('activeBtn');
-        skillsBtn.classList.remove('activeBtn');
-        workBtn.classList.remove('activeBtn');
-        testimonialsBtn.classList.remove('activeBtn');
-        contactBtn.classList.remove('activeBtn');
-    } else if (window.scrollY < homeSectionHeight + aboutSectionHeight + skillsSectionHeight - nabvarHeight){
-        homeBtn.classList.remove('activeBtn');
-        aboutBtn.classList.remove('activeBtn');
-        skillsBtn.classList.add('activeBtn');
-        workBtn.classList.remove('activeBtn');
-        testimonialsBtn.classList.remove('activeBtn');
-        contactBtn.classList.remove('activeBtn');
-    } else if (window.scrollY < homeSectionHeight + aboutSectionHeight + skillsSectionHeight + workSectionHeight - nabvarHeight){
-        homeBtn.classList.remove('activeBtn');
-        aboutBtn.classList.remove('activeBtn');
-        skillsBtn.classList.remove('activeBtn');
-        workBtn.classList.add('activeBtn');
-        testimonialsBtn.classList.remove('activeBtn');
-        contactBtn.classList.remove('activeBtn');
-    } else if( window.scrollY + window.innerHeight >= document.body.scrollHeight) {
-        homeBtn.classList.remove('activeBtn');
-        aboutBtn.classList.remove('activeBtn');
-        skillsBtn.classList.remove('activeBtn');
-        workBtn.classList.remove('activeBtn');
-        testimonialsBtn.classList.remove('activeBtn');
-        contactBtn.classList.add('activeBtn');
-    } else if (window.scrollY <= homeSectionHeight + aboutSectionHeight + skillsSectionHeight + workSectionHeight + testimonialsSectionHeight - nabvarHeight){
-        homeBtn.classList.remove('activeBtn');
-        aboutBtn.classList.remove('activeBtn');
-        skillsBtn.classList.remove('activeBtn');
-        workBtn.classList.remove('activeBtn');
-        testimonialsBtn.classList.add('activeBtn');
-        contactBtn.classList.remove('activeBtn');
-    } 
-
 });
 
 
@@ -95,9 +31,6 @@ navbarMenu.addEventListener('click', (event) => {
     // scrollTo.scrollIntoView();
     scroll({top:distance, behavior: 'smooth'});
 });
-
-
-
 
 
 // Navbar toggle button for small screen
@@ -176,3 +109,40 @@ function scrollIntoView(selector) {
     scrollTo.scrollIntoView({behavior: 'smooth'});
 }
 
+
+// 1. 모든 섹션 요소들을 가지고 오기
+// 2. IntersectionObserver를 이용해서 모든 섹션들을 관찰한다
+// 3. 보여지는 섹션에 해당하는 메뉴 아이템을 활성화 시킨다
+
+// 드림코딩 강의에서는 나간 요소의 다음 요소(y좌표값을 활용해서 방향을 정함)를 활성화 시켰지만 나는 화면에 일정 부분 이상 들어온 것을 기준으로 활성화 시켰음.
+// 이 경우, 화면을 축소해서 다양한 게 보인다면 여러개가 활성화 될 수 있는데 이는 어쩔 수 없기도 하고 어떻게 보면 화면에 한 번에 여러개가 보이기에 당연한 것으로도 생각됨
+// 아래의 주석으로 된 코드는 엘리의 코드가 아닌 내가 다른 방식으로 같은 로직을 구현했을 뿐임
+
+const sectionIds = ['#home', '#about', '#skills', '#work', '#testimonials', '#contact'];
+const sections = sectionIds.map( id => document.querySelector(id));
+const navItems = sectionIds.map( id => document.querySelector(`[data-link='${id}']`) );
+
+const observerOptions = {
+    root: null,
+    rootMargin:'0px',
+    threshold: 0.3
+}
+
+const observerCallback = (entries, observer) => {
+    entries.forEach(entry => {
+        const index = sectionIds.indexOf(`#${entry.target.id}`);
+        const navItem = navItems[index];
+        // const thisSectionId = `#${entry.target.id}`;
+        // const thisNavElement = document.querySelector(`[data-link='${thisSectionId}']`);
+        if(entry.isIntersecting) {
+            navItem.classList.add('activeBtn');
+            // thisNavElement.classList.add('activeBtn');
+        } else {
+            navItem.classList.remove('activeBtn');
+            // thisNavElement.classList.remove('activeBtn');
+        }
+    });
+}
+
+const observer = new IntersectionObserver(observerCallback, observerOptions);
+sections.forEach(section => observer.observe(section));
